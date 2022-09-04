@@ -3,7 +3,7 @@
 import thunk from 'redux-thunk'
 // const store=createStore(reducer,applyMiddleware(thunk))
 
-import rootReducers from "./reducer/index"
+import rootReducers from "./reducers/index"
 import {createStore,applyMiddleware} from 'redux'
 const store=createStore(rootReducers,applyMiddleware(thunk))
 

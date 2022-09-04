@@ -1,5 +1,8 @@
 import AddContactForm from '../form/myform'
 import { useState } from "react"
+import { Link } from 'react-router-dom'
+import { Button } from '@mui/material';
+
 function EditContact() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -25,6 +28,10 @@ function EditContact() {
                     setPhone={setPhone}
 
                 />
+                <div>
+                    <Button type="primary" >Update</Button>
+                    <Button type="primary" ><Link to='/'>Cancel</Link></Button>
+                </div>
             </div>
 
         </div>

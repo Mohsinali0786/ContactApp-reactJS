@@ -71,9 +71,7 @@ function AddContactForm({name,setName,email,setEmail, phone,setPhone})  {
           span: 16,
         }}
       >
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
+
       </Form.Item>
     </Form>
   );

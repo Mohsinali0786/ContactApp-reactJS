@@ -1,7 +1,7 @@
-import changeNumber from './UpDown'
+import contactDetails from './contactDetails'
 import { combineReducers } from 'redux'
 const rootReducers=combineReducers({
-    changeNumber,
+    ContactDetails:contactDetails,
 })
 
 export default rootReducers
