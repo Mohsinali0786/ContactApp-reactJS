@@ -1,19 +1,24 @@
 import AddContactForm from '../form/myform'
 import { useState } from "react"
 import { Button } from '@mui/material';
-import {useSelector,useDispatch} from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { toast } from 'react-toastify';
+
 function AddContact() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
 
-    const mystate = useSelector((state)=>state)
+    const contacts = useSelector((state) => state.ContactDetails)
+    console.log('contacts', contacts)
+
+    const checkEmailIsExist = contacts.find(contact => contact.email === email && email);
+    console.log('checkEmailIsExist', checkEmailIsExist)
+    if (checkEmailIsExist) {
+        // return toast.error('Email Exist')
+    }
 
 
-
-    console.log(mystate)
-    console.log(email)
-    console.log(phone)
     return (
         <div>
             <h1>AddContact</h1>
@@ -26,14 +31,15 @@ function AddContact() {
                     setEmail={setEmail}
                     phone={phone}
                     setPhone={setPhone}
+                // handleSubmit={handleSubmit()}
 
                 />
             </div>
             <div>
 
-                <Button type="primary" htmlType="submit">
+                {/* <Button type="primary" onClick={() => notify()} htmlType="submit">
                     Submit
-                </Button>
+                </Button> */}
             </div>
 
         </div >

@@ -1,12 +1,13 @@
 import AddContactForm from '../form/myform'
 import { useState } from "react"
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { Button } from '@mui/material';
 
 function EditContact() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
+    const { id } = useParams()
 
     console.log(name)
     console.log(email)
@@ -15,7 +16,7 @@ function EditContact() {
 
         <div>
             <div>
-                <h1>EditContact</h1>
+                <h1>EditContact {id}</h1>
             </div>
             <div className="AddContactForm">
 

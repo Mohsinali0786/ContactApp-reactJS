@@ -31,7 +31,7 @@ const contactDetails = (state = initialState, action) => {
 
         default: return state
 
-    }
+    } 
     // return state
 
 }

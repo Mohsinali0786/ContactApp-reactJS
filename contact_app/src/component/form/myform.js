@@ -1,9 +1,13 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import { Button, Checkbox, Form, Input } from 'antd';
+import { toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 
-function AddContactForm({name,setName,email,setEmail, phone,setPhone})  {
+
+
+function AddContactForm({ name, setName, email, setEmail, phone, setPhone }) {
   const onFinish = (values) => {
     console.log('Success:', values);
   };
@@ -11,6 +15,15 @@ function AddContactForm({name,setName,email,setEmail, phone,setPhone})  {
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
+  const handleSubmit = (e) => {
+    console.log('handle')
+    // e.preventDefault()
+    // e.preventDefault()
+    if (!name || !email || !phone) {
+      return toast.warning("Please fill in all fields!!");
+    }
+  }
+
 
   return (
     <Form
@@ -27,6 +40,8 @@ function AddContactForm({name,setName,email,setEmail, phone,setPhone})  {
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
       autoComplete="off"
+      onSubmitCapture={handleSubmit}
+    // onSubmit={() => {  }}
     >
       <Form.Item
         label="Name"
@@ -37,7 +52,7 @@ function AddContactForm({name,setName,email,setEmail, phone,setPhone})  {
           },
         ]}
       >
-        <Input onChange={(e)=>{setName(e.target.value)}} />
+        <Input onChange={(e) => { setName(e.target.value) }} />
       </Form.Item>
 
       <Form.Item
@@ -49,7 +64,7 @@ function AddContactForm({name,setName,email,setEmail, phone,setPhone})  {
           },
         ]}
       >
-        <Input  onChange={(e)=>{setEmail(e.target.value)}}/>
+        <Input onChange={(e) => { setEmail(e.target.value) }} />
       </Form.Item>
       <Form.Item
         label="Number"
@@ -60,10 +75,14 @@ function AddContactForm({name,setName,email,setEmail, phone,setPhone})  {
           },
         ]}
       >
-        <Input  onChange={(e)=>{setPhone(e.target.value)}}/>
+        <Input onChange={(e) => { setPhone(e.target.value) }} />
       </Form.Item>
 
- 
+      <input type="submit" />
+
+
+
+
 
       <Form.Item
         wrapperCol={{

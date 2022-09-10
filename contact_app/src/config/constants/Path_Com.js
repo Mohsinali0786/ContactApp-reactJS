@@ -5,7 +5,7 @@ import  EditContact from '../../component/EditContact/index.js'
 
 export const HOME='/'
 export const ADDCONTACT='/addcontact'
-export const EDITCONTACT='/editcontact'
+export const EDITCONTACT='/editcontact/:id'
 
 
 export const NavArray =[
