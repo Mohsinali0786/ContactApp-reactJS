@@ -2,12 +2,19 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { toast } from 'react-toastify';
+import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from "react-router"
+
 // import 'react-toastify/dist/ReactToastify.css';
 
 
 
 
-function AddContactForm({ name, setName, email, setEmail, phone, setPhone }) {
+function AddContactForm({ name, setName, email, setEmail, phone, setPhone,Edit }) {
+  const contacts = useSelector((state) => state.ContactDetails)
+  const Navigate = useNavigate();
+  const dispatch=useDispatch()
+  console.log('contacts', contacts)
   const onFinish = (values) => {
     console.log('Success:', values);
   };
@@ -17,11 +24,37 @@ function AddContactForm({ name, setName, email, setEmail, phone, setPhone }) {
   };
   const handleSubmit = (e) => {
     console.log('handle')
-    // e.preventDefault()
-    // e.preventDefault()
+
+    const checkEmailIsExist = contacts.find(contact => contact.email === email );
+    console.log('checkEmailIsExist',checkEmailIsExist)
+    const checkNumberIsExist = contacts.find(contact => contact.number === parseInt(phone) && phone);
+
     if (!name || !email || !phone) {
       return toast.warning("Please fill in all fields!!");
     }
+    if (checkEmailIsExist) {
+      return toast.error('Email Exist')
+  }
+  if (checkNumberIsExist) {
+    return toast.error('Num Exist')
+}
+const data = {
+  id: contacts.length > 0 ? contacts[contacts.length - 1].id + 1 : 0,
+  email,
+  name,
+  phone,
+};
+Edit?
+dispatch({
+  type:'EDIT_CONTACT',
+  payload:data
+}):
+dispatch({
+  type:'ADD_CONTACT',
+  payload:data
+})
+toast.success("Contact added successfully!!");
+Navigate("/");
   }
 
 

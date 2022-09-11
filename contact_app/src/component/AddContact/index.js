@@ -9,14 +9,7 @@ function AddContact() {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
 
-    const contacts = useSelector((state) => state.ContactDetails)
-    console.log('contacts', contacts)
 
-    const checkEmailIsExist = contacts.find(contact => contact.email === email && email);
-    console.log('checkEmailIsExist', checkEmailIsExist)
-    if (checkEmailIsExist) {
-        // return toast.error('Email Exist')
-    }
 
 
     return (
