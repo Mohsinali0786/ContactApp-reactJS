@@ -25,6 +25,14 @@ function AddContactForm({ name, setName, email, setEmail, phone, setPhone,Edit }
   const handleSubmit = (e) => {
     console.log('handle')
 
+    Edit?(
+      
+      const checkEmailIsExist = contacts.find(contact =>contact.id !== currentContact.id && contact.email === email );
+      console.log('checkEmailIsExist',checkEmailIsExist)
+      const checkNumberIsExist = contacts.find(contact => contact.number === parseInt(phone) && phone);
+    )
+    :
+
     const checkEmailIsExist = contacts.find(contact => contact.email === email );
     console.log('checkEmailIsExist',checkEmailIsExist)
     const checkNumberIsExist = contacts.find(contact => contact.number === parseInt(phone) && phone);
