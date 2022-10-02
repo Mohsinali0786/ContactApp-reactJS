@@ -1,7 +1,10 @@
-const addContact=(data)=>{
-    dispatch({
-        type:'ADD_CONTACT',
-        payload:data,
+import {REGISTER} from '../const'
+export const RegisterAction=(data)=>{
+    return(
 
-    })
+        {type:REGISTER,
+        payload:data,}
+    )
+
 }
+

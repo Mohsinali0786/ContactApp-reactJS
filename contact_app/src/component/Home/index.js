@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom"
 import { Button } from "@mui/material"
+import MyTable from "../table"
 
 import { useSelector, useDispatch } from 'react-redux'
 
 function Home() {
 
     const contacts = useSelector((state) => state.ContactDetails)
+    console.log('contacts',contacts)
 
+
+    
 
     return (
         <div className="Home-MDiv">
@@ -18,7 +22,7 @@ function Home() {
                     <Button variant="outlined">Add Contact</Button>
                 </Link>
             </div>
-            <table className="table table-hover">
+            {/* <table className="table table-hover">
             <thead className="table-header bg-dark text-white">
               <tr>
                 <th scope="col">Id</th>
@@ -59,7 +63,8 @@ function Home() {
                 </tr>
               )}
             </tbody>
-          </table>
+          </table> */}
+          <MyTable contacts={contacts}/>
         </div>
     )
 }

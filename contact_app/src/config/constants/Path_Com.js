@@ -2,10 +2,13 @@
 import Home from '../../component/Home/index.js'
 import  AddContact from  '../../component/AddContact/index.js'
 import  EditContact from '../../component/EditContact/index.js'
+import  AddContactANT from  '../../component/form/Sig'
 
-export const HOME='/'
-export const ADDCONTACT='/addcontact'
-export const EDITCONTACT='/editcontact/:id'
+
+
+const HOME='/'
+const ADDCONTACT='/addcontact'
+const EDITCONTACT='/editcontact/:id'
 
 
 export const NavArray =[
@@ -15,7 +18,7 @@ export const NavArray =[
     },    
     {
         path:ADDCONTACT,
-        component:AddContact
+        component:AddContactANT
     },
     {
         path:EDITCONTACT,

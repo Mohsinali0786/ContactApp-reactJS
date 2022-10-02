@@ -1,29 +1,31 @@
+import {REGISTER} from '../const'
+
 const initialState = [
-    {
-        id: 0,
-        name: 'Kalim',
-        email: 'kalim@gmail.com',
-        number: parseInt('03001234567'),
-    },
-    {
-        id: 1,
-        name: 'Imran',
-        email: 'Imran@gmail.com',
-        number: parseInt('0300234567'),
-    },
-    {
-        id: 2,
-        name: 'Fahad',
-        email: 'Fahad@gmail.com',
-        number: parseInt('0320234567'),
-    }
+    // {
+    //     id: 0,
+    //     name: 'Kalim',
+    //     email: 'kalim@gmail.com',
+    //     number: parseInt('03001234567'),
+    // },
+    // {
+    //     id: 1,
+    //     name: 'Imran',
+    //     email: 'Imran@gmail.com',
+    //     number: parseInt('0300234567'),
+    // },
+    // {
+    //     id: 2,
+    //     name: 'Fahad',
+    //     email: 'Fahad@gmail.com',
+    //     number: parseInt('0320234567'),
+    // }
 ]
 
 
 const contactDetails = (state = initialState, action) => {
-    console.log('action====>', action.type)
+    console.log('action====>', action.payload)
     switch (action.type) {
-        case "ADD_CONTACT":
+        case REGISTER:
             {
                 state = [...state, action.payload]
                 return state

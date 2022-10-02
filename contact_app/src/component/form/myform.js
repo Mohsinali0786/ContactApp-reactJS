@@ -23,40 +23,39 @@ function AddContactForm({ name, setName, email, setEmail, phone, setPhone,Edit }
     console.log('Failed:', errorInfo);
   };
   const handleSubmit = (e) => {
-    console.log('handle')
+    console.log('handle',e)
 
-    Edit?(
-      
-      const checkEmailIsExist = contacts.find(contact =>contact.id !== currentContact.id && contact.email === email );
-      console.log('checkEmailIsExist',checkEmailIsExist)
-      const checkNumberIsExist = contacts.find(contact => contact.number === parseInt(phone) && phone);
-    )
-    :
+//     if(Edit===true){
 
-    const checkEmailIsExist = contacts.find(contact => contact.email === email );
-    console.log('checkEmailIsExist',checkEmailIsExist)
-    const checkNumberIsExist = contacts.find(contact => contact.number === parseInt(phone) && phone);
+//       const checkEmailIsExist = contacts.find(contact =>contact.id !== id && contact.email === email )
+//        const checkNumberIsExist = contacts.find(contact => contact.number === parseInt(phone) )
+//     }
 
-    if (!name || !email || !phone) {
-      return toast.warning("Please fill in all fields!!");
-    }
-    if (checkEmailIsExist) {
-      return toast.error('Email Exist')
-  }
-  if (checkNumberIsExist) {
-    return toast.error('Num Exist')
-}
+//    else if(Edit===false){
+//      const checkEmailIsExist = contacts.find(contact => contact.email === email )
+//       console.log('checkEmailIsExist',checkEmailIsExist)
+//       const checkNumberIsExist = contacts.find(contact => contact.number === parseInt(phone) && phone)
+//    }
+//     if (!name || !email || !phone) {
+//       return toast.warning("Please fill in all fields!!");
+//     }
+//     if (checkEmailIsExist) {
+//       return toast.error('Email Exist')
+//   }
+//   if (checkNumberIsExist) {
+//     return toast.error('Num Exist')
+// }
 const data = {
   id: contacts.length > 0 ? contacts[contacts.length - 1].id + 1 : 0,
   email,
   name,
   phone,
 };
-Edit?
-dispatch({
-  type:'EDIT_CONTACT',
-  payload:data
-}):
+// Edit?
+// dispatch({
+//   type:'EDIT_CONTACT',
+//   payload:data
+// }):
 dispatch({
   type:'ADD_CONTACT',
   payload:data
